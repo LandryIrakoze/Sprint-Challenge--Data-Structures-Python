@@ -49,10 +49,10 @@ class LinkedList:
     stack = Stack()
     current = self.head
     new_node = Node()
-    
+
     while current != None:
       stack.push(self.head.value)
       current = current.get_next()
-    for item in range(0, stack.size):
-      new_node.set_next(stack.pop)
+    while stack.size != 0:
+      new_node.set_next(stack.pop())
     return new_node
