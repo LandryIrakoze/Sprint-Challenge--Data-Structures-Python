@@ -1,3 +1,5 @@
+from dll_stack import Stack
+
 class Node:
   def __init__(self, value=None, next_node=None):
     # the value at this linked list node
@@ -44,4 +46,13 @@ class LinkedList:
 
   def reverse_list(self):
     # TO BE COMPLETED
-    pass
+    stack = Stack()
+    current = self.head
+    new_node = Node()
+
+    while current != None:
+      stack.push(self.head.value)
+      current = current.get_next()
+    while stack.size != 0:
+      new_node.set_next(stack.pop())
+    return new_node
